@@ -1,0 +1,3 @@
+import { CONTACT } from "@/lib/constants";
+import ContactForm from "@/components/ContactForm";
+export default function Contacto(){return <main className="mx-auto max-w-6xl px-4 py-16"><h1 className="font-heading text-4xl font-extrabold text-brand-blue">¿Necesitas una cotización?</h1><p className="mt-2">Estamos para ayudarte.</p><div className="mt-6 grid gap-8 md:grid-cols-2"><div className="rounded-2xl bg-brand-light p-6 text-sm"><p><b>Correo:</b> {CONTACT.email}</p><p><b>Teléfono:</b> {CONTACT.phone}</p><p><b>Celular:</b> {CONTACT.cell}</p><p><b>Sitio web:</b> {CONTACT.website}</p><p><b>Dirección:</b> {CONTACT.address}</p></div><ContactForm /></div></main>}
