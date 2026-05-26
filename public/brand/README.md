@@ -1,5 +1,5 @@
-Colocar aquí los assets de marca finales:
-- logo-biothermics-principal.png
-- logo-biothermics-secundario.png
+Coloca aquí los logos finales entregados:
+- logo-biothermics-principal.png (fondo claro)
+- logo-biothermics-secundario.png (fondo azul)
 - favicon.png
 - og-biothermics.png

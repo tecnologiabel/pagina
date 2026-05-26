@@ -1,22 +1,22 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { NAV } from "@/lib/constants";
 import BrandLogo from "./BrandLogo";
-import { NAV_ITEMS } from "@/lib/constants";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b border-brand-sky/20 bg-brand-blue/95 backdrop-blur">
-      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4">
-        <Link href="#inicio"><BrandLogo /></Link>
-        <nav className="hidden items-center gap-7 md:flex">
-          {NAV_ITEMS.map((item) => <a key={item.href} href={item.href} className="font-heading text-sm font-semibold text-white hover:text-brand-sky">{item.label}</a>)}
-          <a href="#contacto" className="rounded-full bg-brand-red px-5 py-2 text-sm font-bold text-white">Solicitar asesoría</a>
+    <header className="sticky top-0 z-50 bg-brand-blue text-white shadow-lg">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        <BrandLogo />
+        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Abrir menú">☰</button>
+        <nav className="hidden items-center gap-6 md:flex">
+          {NAV.map((item) => <Link key={item.href} href={item.href} className="font-heading text-sm font-semibold hover:text-brand-sky">{item.label}</Link>)}
+          <Link href="/contacto" className="rounded-full bg-brand-red px-4 py-2 text-sm font-bold">Solicitar cotización</Link>
         </nav>
-        <button aria-label="Abrir menú" className="md:hidden text-white" onClick={() => setOpen(!open)}>☰</button>
       </div>
-      {open && <div className="border-t border-white/20 bg-brand-blue px-4 pb-5 md:hidden">{NAV_ITEMS.map((item)=><a key={item.href} href={item.href} className="block py-2 text-white" onClick={()=>setOpen(false)}>{item.label}</a>)}<a href="#contacto" className="mt-2 inline-block rounded-full bg-brand-red px-5 py-2 text-white">Solicitar asesoría</a></div>}
+      {open && <nav className="space-y-2 border-t border-white/20 px-4 py-3 md:hidden">{NAV.map((item)=><Link key={item.href} href={item.href} className="block" onClick={()=>setOpen(false)}>{item.label}</Link>)}</nav>}
     </header>
   );
 }
